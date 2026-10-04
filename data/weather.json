@@ -1,0 +1,84 @@
+{
+  "location": "Karnal, Haryana",
+  "coordinates": {"lat": 29.6857, "lon": 76.9905},
+  "agro_climatic_zone": "Trans-Gangetic Plains (Zone VI)",
+  "current": {
+    "temperature_c": 27.4,
+    "feels_like_c": 29.1,
+    "humidity_pct": 68,
+    "leaf_wetness_pct": 32,
+    "soil_temp_c": 23.5,
+    "rainfall_prob_pct": 18,
+    "current_rain_mm": 0.0,
+    "wind_speed_kmh": 12.5,
+    "wind_direction": "NNW",
+    "solar_radiation_w_m2": 680,
+    "et0_mm_day": 4.2,
+    "pressure_hpa": 1012,
+    "dew_point_c": 19.8,
+    "condition": "Partly Cloudy",
+    "icon": "partly-cloudy"
+  },
+  "forecast_5d": [
+    {
+      "date": "2026-09-30",
+      "day": "Today",
+      "temp_max": 31,
+      "temp_min": 21,
+      "condition": "Partly Cloudy",
+      "rainfall_prob_pct": 18,
+      "expected_rain_mm": 0,
+      "humidity_avg_pct": 65,
+      "et0_mm": 4.2,
+      "wind_kmh": 12
+    },
+    {
+      "date": "2026-10-01",
+      "day": "Thu",
+      "temp_max": 32,
+      "temp_min": 22,
+      "condition": "Sunny",
+      "rainfall_prob_pct": 10,
+      "expected_rain_mm": 0,
+      "humidity_avg_pct": 58,
+      "et0_mm": 4.8,
+      "wind_kmh": 10
+    },
+    {
+      "date": "2026-10-02",
+      "day": "Fri",
+      "temp_max": 30,
+      "temp_min": 23,
+      "condition": "Scattered Clouds",
+      "rainfall_prob_pct": 35,
+      "expected_rain_mm": 2.5,
+      "humidity_avg_pct": 74,
+      "et0_mm": 3.9,
+      "wind_kmh": 16
+    },
+    {
+      "date": "2026-10-03",
+      "day": "Sat",
+      "temp_max": 28,
+      "temp_min": 21,
+      "condition": "Moderate Rain Likely",
+      "rainfall_prob_pct": 65,
+      "expected_rain_mm": 18.0,
+      "humidity_avg_pct": 82,
+      "et0_mm": 2.6,
+      "wind_kmh": 22
+    },
+    {
+      "date": "2026-10-04",
+      "day": "Sun",
+      "temp_max": 29,
+      "temp_min": 20,
+      "condition": "Clearing Sky",
+      "rainfall_prob_pct": 20,
+      "expected_rain_mm": 1.0,
+      "humidity_avg_pct": 68,
+      "et0_mm": 3.7,
+      "wind_kmh": 14
+    }
+  ]
+}

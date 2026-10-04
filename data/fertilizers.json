@@ -1,0 +1,57 @@
+[
+  {
+    "id": "urea",
+    "name": "Neem Coated Urea",
+    "hindi_name": "नीम लेपित यूरिया",
+    "nutrients": {"N": 46.0, "P": 0, "K": 0},
+    "bag_size_kg": 45,
+    "govt_subsidized_price_inr": 266.5,
+    "primary_target": "Nitrogen deficiency, vegetative vigor, chlorophyll synthesis",
+    "application_mode": "Split top dressing before irrigation or light rain",
+    "precautions": "Avoid application in standing deep water or right before heavy storms"
+  },
+  {
+    "id": "dap",
+    "name": "Di-Ammonium Phosphate (DAP)",
+    "hindi_name": "डी.ए.पी.",
+    "nutrients": {"N": 18.0, "P": 46.0, "K": 0},
+    "bag_size_kg": 50,
+    "govt_subsidized_price_inr": 1350.0,
+    "primary_target": "Phosphorus deficiency, early root establishment, vigorous tillering",
+    "application_mode": "Basal application at sowing via seed-cum-fertilizer drill",
+    "precautions": "Place 2-3 cm below seed to avoid seed burn"
+  },
+  {
+    "id": "mop",
+    "name": "Muriate of Potash (MOP)",
+    "hindi_name": "म्यूरेट ऑफ पोटाश",
+    "nutrients": {"N": 0, "P": 0, "K": 60.0},
+    "bag_size_kg": 50,
+    "govt_subsidized_price_inr": 1700.0,
+    "primary_target": "Potassium deficiency, drought resistance, grain weight, lodging prevention",
+    "application_mode": "Basal application or split at boot leaf stage",
+    "precautions": "Crucial for lodging-prone high yielding dwarf varieties"
+  },
+  {
+    "id": "zinc_sulfate",
+    "name": "Zinc Sulfate Heptahydrate (21% Zn + 10% S)",
+    "hindi_name": "जिंक सल्फेट",
+    "nutrients": {"Zn": 21.0, "S": 10.0},
+    "bag_size_kg": 25,
+    "govt_subsidized_price_inr": 780.0,
+    "primary_target": "Khaira disease in rice, interveinal chlorosis in wheat, enzyme activation",
+    "application_mode": "Soil application @ 10 kg/acre or foliar spray 0.5% with 0.25% lime",
+    "precautions": "Never mix directly with DAP or phosphate fertilizers (causes insoluble zinc phosphate precipitation)"
+  },
+  {
+    "id": "npk_12_32_16",
+    "name": "NPK Complex (12:32:16)",
+    "hindi_name": "एन.पी.के. कॉम्प्लेक्स",
+    "nutrients": {"N": 12.0, "P": 32.0, "K": 16.0},
+    "bag_size_kg": 50,
+    "govt_subsidized_price_inr": 1470.0,
+    "primary_target": "Balanced starter nutrition for cereal crops",
+    "application_mode": "Basal placement along with seed sowing",
+    "precautions": "Ideal balanced substitute for DAP + MOP blend"
+  }
+]

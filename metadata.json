@@ -1,0 +1,6 @@
+{
+  "name": "Smart Crop Advisory",
+  "description": "Comprehensive agricultural decision-support system for Indian farmers featuring crop monitoring, soil telemetry, irrigation and fertilizer recommendations, AI disease diagnosis, mandi market intelligence, PMFBY insurance dossier, and satellite disaster assessment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

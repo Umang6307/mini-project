@@ -1,0 +1,163 @@
+[
+  {
+    "id": "wheat_yellow_rust",
+    "crop": "Wheat",
+    "conditionName": "Yellow Stripe Rust",
+    "hindiName": "पीला रतुआ (येलो रस्ट)",
+    "causalOrganism": "Puccinia striiformis f. sp. tritici (Fungus)",
+    "severityLevel": "HIGH",
+    "riskPct": 85,
+    "stages": ["Tillering", "Jointing & Booting", "Flowering & Anthesis"],
+    "visualSymptoms": [
+      "Bright yellow, linear stripes of urediniospores on leaf blades",
+      "Yellow dusty powder on hands when touching foliage",
+      "Premature leaf drying and chlorosis along veins",
+      "Stunted spikes with shriveled grains"
+    ],
+    "keywords": ["yellow", "stripes", "powder", "rust", "striping", "leaves", "chlorosis"],
+    "chemicalTreatment": "Spray Propiconazole 25% EC (Tilt) @ 1 ml/litre of water (200 ml/acre) or Tebuconazole 25.9% EC @ 200 ml/acre in 200L water. Repeat after 15 days if cloudy weather persists.",
+    "organicBioControl": "Foliar spray of Trichoderma harzianum @ 5g/litre + Neem oil 1500 ppm @ 3 ml/litre. Dusting sulfur @ 10 kg/acre in dry conditions.",
+    "estimatedCostInr": 680,
+    "preventiveAdvice": "Avoid excessive urea application. Maintain field drainage. Inspect northern border areas during cold misty spells."
+  },
+  {
+    "id": "wheat_karnal_bunt",
+    "crop": "Wheat",
+    "conditionName": "Karnal Bunt",
+    "hindiName": "करनाल बंट",
+    "causalOrganism": "Tilletia indica (Fungus)",
+    "severityLevel": "MEDIUM",
+    "riskPct": 65,
+    "stages": ["Flowering & Anthesis", "Grain Filling / Dough"],
+    "visualSymptoms": [
+      "Partial conversion of wheat kernels into black powdery masses",
+      "Distinct foul, fishy odor (trimethylamine) in field or storage",
+      "Spreading glumes exposing blackened teliospores"
+    ],
+    "keywords": ["black", "kernel", "odor", "smut", "bunt", "grain"],
+    "chemicalTreatment": "Spray Propiconazole 25% EC @ 500 ml/ha at heading/anthesis stage.",
+    "organicBioControl": "Seed treatment with Trichoderma viride @ 4g/kg seed before sowing. Crop rotation with non-host legumes.",
+    "estimatedCostInr": 550,
+    "preventiveAdvice": "Use certified disease-free seed; avoid over-irrigation during anthesis."
+  },
+  {
+    "id": "wheat_nitrogen_deficiency",
+    "crop": "Wheat",
+    "conditionName": "Nitrogen Deficiency (Chlorosis)",
+    "hindiName": "नाइट्रोजन की कमी",
+    "causalOrganism": "Physiological Nutrient Deficiency (Abiotic)",
+    "severityLevel": "MEDIUM",
+    "riskPct": 55,
+    "stages": ["Tillering", "Jointing & Booting"],
+    "visualSymptoms": [
+      "Pale yellowish-green appearance of older lower leaves first",
+      "V-shaped yellowing starting at leaf tips and progressing down the midrib",
+      "Reduced tillering and spindly, stunted plant growth"
+    ],
+    "keywords": ["pale", "yellow", "lower leaves", "stunted", "deficiency", "chlorosis"],
+    "chemicalTreatment": "Top dress Urea @ 30-35 kg/acre before first/second irrigation, or foliar spray of 2% Urea solution (2 kg Urea in 100L water per acre).",
+    "organicBioControl": "Soil application of Jeevamrit @ 200L/acre or Vermicompost @ 5 quintals/acre with Azotobacter biofertilizer.",
+    "estimatedCostInr": 320,
+    "preventiveAdvice": "Split application of nitrogen: 50% basal, 25% at CRI stage, 25% at jointing stage."
+  },
+  {
+    "id": "paddy_blast",
+    "crop": "Paddy (Rice)",
+    "conditionName": "Rice Blast (Leaf & Neck Blast)",
+    "hindiName": "धान का झुलसा रोग (ब्लास्ट)",
+    "causalOrganism": "Magnaporthe oryzae (Pyricularia oryzae)",
+    "severityLevel": "CRITICAL",
+    "riskPct": 92,
+    "stages": ["Tillering", "Panicle Initiation", "Flowering"],
+    "visualSymptoms": [
+      "Spindle-shaped or eye-shaped lesions with grey/white centers and brown margins",
+      "Blackened collar rot where leaf sheath meets blade",
+      "Broken rotten neck at the base of panicle causing empty white heads"
+    ],
+    "keywords": ["spindle", "eye-shaped", "blast", "lesion", "neck rot", "paddy"],
+    "chemicalTreatment": "Foliar spray of Tricyclazole 75% WP @ 0.6g/L (120g/acre) or Isoprothiolane 40% EC @ 1.5 ml/L.",
+    "organicBioControl": "Pseudomonas fluorescens @ 10g/L foliar spray + Panchagavya 3% solution at 10-day intervals.",
+    "estimatedCostInr": 720,
+    "preventiveAdvice": "Avoid high doses of nitrogenous fertilizers. Maintain standing water depth at 3-5 cm."
+  },
+  {
+    "id": "paddy_bacterial_leaf_blight",
+    "crop": "Paddy (Rice)",
+    "conditionName": "Bacterial Leaf Blight (BLB)",
+    "hindiName": "जीवाणु झुलसा रोग (बी.एल.बी.)",
+    "causalOrganism": "Xanthomonas oryzae pv. oryzae",
+    "severityLevel": "HIGH",
+    "riskPct": 80,
+    "stages": ["Tillering", "Flowering"],
+    "visualSymptoms": [
+      "Water-soaked stripes turning yellow to wavy white edges on leaves",
+      "Milky bacterial ooze beads on lesions early morning",
+      "Leaves wilt and roll up, leading to kresek symptom in young plants"
+    ],
+    "keywords": ["blight", "wavy", "bacterial", "ooze", "kresek", "white margin"],
+    "chemicalTreatment": "Copper Oxychloride 50% WP @ 500g + Streptocycline @ 6g in 200L water per acre.",
+    "organicBioControl": "Neem seed kernel extract (NSKE) 5% spray + Bacillus subtilis bio-fungicide @ 5g/L.",
+    "estimatedCostInr": 480,
+    "preventiveAdvice": "Drain the field temporarily if flood irrigation is stagnating. Stop nitrogen top dressing immediately."
+  },
+  {
+    "id": "cotton_pink_bollworm",
+    "crop": "Cotton",
+    "conditionName": "Pink Bollworm Infestation",
+    "hindiName": "गुलाबी सुंडी (पिंक बॉलवर्म)",
+    "causalOrganism": "Pectinophora gossypiella (Insect Pest)",
+    "severityLevel": "CRITICAL",
+    "riskPct": 90,
+    "stages": ["Flowering", "Boll Development"],
+    "visualSymptoms": [
+      "Rosetted flowers that fail to open properly",
+      "Small entry holes bored into developing bolls plugged with excreta",
+      "Stained lint and chewed developing seeds inside cut bolls"
+    ],
+    "keywords": ["bollworm", "pink", "rosette", "caterpillar", "hole", "cotton"],
+    "chemicalTreatment": "Spray Emamectin Benzoate 5% SG @ 100g/acre or Chlorantraniliprole 18.5% SC @ 60 ml/acre.",
+    "organicBioControl": "Install 8-10 pheromone traps per acre with Gossyplure. Release Trichogramma bactrae egg parasitoids @ 60,000/acre.",
+    "estimatedCostInr": 850,
+    "preventiveAdvice": "Timely destruction of crop residues after harvest; avoid keeping ratoon cotton."
+  },
+  {
+    "id": "mustard_aphids",
+    "crop": "Mustard",
+    "conditionName": "Mustard Aphid Infestation",
+    "hindiName": "सरसों का चेपा (माहू)",
+    "causalOrganism": "Lipaphis erysimi (Insect Pest)",
+    "severityLevel": "HIGH",
+    "riskPct": 78,
+    "stages": ["Flowering", "Siliqua Formation"],
+    "visualSymptoms": [
+      "Dense colonies of tiny green-black soft-bodied bugs clustered on shoots and flowers",
+      "Curled, yellowed inflorescences coated with sticky honeydew and sooty mold",
+      "Poor pod filling and shriveled seeds"
+    ],
+    "keywords": ["aphid", "chepa", "sticky", "honeydew", "green insect", "colonies"],
+    "chemicalTreatment": "Spray Dimethoate 30% EC @ 1.5 ml/L or Thiamethoxam 25% WG @ 80g/acre in 200L water.",
+    "organicBioControl": "Spray Verticillium lecanii @ 5g/L or 5% Neem Oil emulsion with soap water solution.",
+    "estimatedCostInr": 420,
+    "preventiveAdvice": "Early sowing before mid-October helps crop escape peak aphid flight periods."
+  },
+  {
+    "id": "generic_leaf_spot",
+    "crop": "All Crops",
+    "conditionName": "Alternaria Leaf Spot & Blight",
+    "hindiName": "अल्टरनेरिया पत्ती धब्बा",
+    "causalOrganism": "Alternaria spp. (Fungus)",
+    "severityLevel": "MEDIUM",
+    "riskPct": 60,
+    "stages": ["Vegetative", "Flowering"],
+    "visualSymptoms": [
+      "Concentric ringed brown/black target-board spots on older leaves",
+      "Yellow halo surrounding dark necrotic spots",
+      "Leaf premature defoliation under high relative humidity"
+    ],
+    "keywords": ["spot", "concentric", "rings", "brown", "target", "halo"],
+    "chemicalTreatment": "Mancozeb 75% WP @ 2.5g/L (500g/acre) or Azoxystrobin + Difenoconazole @ 1 ml/L.",
+    "organicBioControl": "Cow urine spray (10% fermented) + Trichoderma viride @ 5g/L.",
+    "estimatedCostInr": 450,
+    "preventiveAdvice": "Provide adequate spacing between rows to enhance air circulation."
+  }
+]

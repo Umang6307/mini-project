@@ -1,0 +1,162 @@
+{
+  "app_title": {
+    "en": "Smart Crop Advisory",
+    "hi": "स्मार्ट फसल सलाहकार"
+  },
+  "tagline": {
+    "en": "Precision Agricultural Decision-Support System",
+    "hi": "सटीक कृषि निर्णय-सहायता प्रणाली"
+  },
+  "nav_dashboard": {
+    "en": "Dashboard",
+    "hi": "डैशबोर्ड"
+  },
+  "nav_irrigation": {
+    "en": "Irrigation Engine",
+    "hi": "सिंचाई सलाहकार"
+  },
+  "nav_fertilizer": {
+    "en": "Nutrient & Fertilizer",
+    "hi": "उर्वरक एवं पोषण"
+  },
+  "nav_crop_health": {
+    "en": "AI Disease Diagnosis",
+    "hi": "एआई फसल रोग निदान"
+  },
+  "nav_soil_weather": {
+    "en": "Soil & Weather Telemetry",
+    "hi": "मृदा एवं मौसम डेटा"
+  },
+  "nav_growth": {
+    "en": "Growth & Harvest",
+    "hi": "फसल वृद्धि व कटाई"
+  },
+  "nav_market": {
+    "en": "Mandi Market Intelligence",
+    "hi": "मंडी भाव व बाजार विश्लेषण"
+  },
+  "nav_finance": {
+    "en": "Farm Finance & P&L",
+    "hi": "कृषि वित्त एवं बहीखाता"
+  },
+  "nav_machinery": {
+    "en": "Machinery Hub",
+    "hi": "कृषि यंत्र व रेंटल हब"
+  },
+  "nav_satellite": {
+    "en": "Satellite & Disaster Risk",
+    "hi": "उपग्रह एवं आपदा मूल्यांकन"
+  },
+  "nav_insurance": {
+    "en": "PMFBY Insurance Dossier",
+    "hi": "पीएम फसल बीमा दावा प्रपत्र"
+  },
+  "nav_schemes": {
+    "en": "Government Schemes",
+    "hi": "सरकारी योजनाएं"
+  },
+  "nav_ussd": {
+    "en": "USSD / SMS Terminal",
+    "hi": "यू.एस.एस.डी. / एसएमएस टर्मिनल"
+  },
+  "nav_demo_center": {
+    "en": "Judges' Demo Scenarios",
+    "hi": "परीक्षक डेमो केंद्र"
+  },
+  "nav_audit": {
+    "en": "Audit Trail & Logs",
+    "hi": "कार्यवाही इतिहास"
+  },
+  "soil_moisture": {
+    "en": "Soil Moisture",
+    "hi": "मृदा नमी"
+  },
+  "temperature": {
+    "en": "Temperature",
+    "hi": "तापमान"
+  },
+  "humidity": {
+    "en": "Humidity",
+    "hi": "हवा में आर्द्रता"
+  },
+  "leaf_wetness": {
+    "en": "Leaf Wetness",
+    "hi": "पत्ती का गीलापन"
+  },
+  "rainfall_prob": {
+    "en": "Rainfall Probability",
+    "hi": "वर्षा की संभावना"
+  },
+  "crop_health": {
+    "en": "Crop Health Score",
+    "hi": "फसल स्वास्थ्य स्कोर"
+  },
+  "current_risk": {
+    "en": "Current Field Risk",
+    "hi": "वर्तमान खेत जोखिम"
+  },
+  "harvest_estimate": {
+    "en": "Est. Harvest Date",
+    "hi": "अनुमानित कटाई तिथि"
+  },
+  "mandi_modal_price": {
+    "en": "Mandi Modal Price",
+    "hi": "मंडी मॉडल भाव"
+  },
+  "field_switcher": {
+    "en": "Select Field",
+    "hi": "खेत चुनें"
+  },
+  "simulate_sensor": {
+    "en": "Simulate Sensor Telemetry",
+    "hi": "सेंसर डेटा अपडेट करें"
+  },
+  "apply_irrigation": {
+    "en": "Apply Irrigation",
+    "hi": "सिंचाई करें"
+  },
+  "apply_fertilizer": {
+    "en": "Apply Fertilizer",
+    "hi": "उर्वरक डालें"
+  },
+  "status_optimal": {
+    "en": "Optimal",
+    "hi": "अनुकूल"
+  },
+  "status_deficit": {
+    "en": "Deficit",
+    "hi": "कमी (आवश्यक)"
+  },
+  "status_surplus": {
+    "en": "Excess / Waterlogged",
+    "hi": "अत्यधिक जलभराव"
+  },
+  "urgency_immediate": {
+    "en": "Immediate (Within 6h)",
+    "hi": "अति आवश्यक (6 घंटे के भीतर)"
+  },
+  "urgency_normal": {
+    "en": "Normal (Within 24-48h)",
+    "hi": "सामान्य (24-48 घंटे के भीतर)"
+  },
+  "farmer_profile": {
+    "en": "Farmer Profile",
+    "hi": "किसान प्रोफ़ाइल"
+  },
+  "demo_mode": {
+    "en": "Evaluator Demo Mode",
+    "hi": "परीक्षक डेमो मोड"
+  },
+  "logout": {
+    "en": "Logout",
+    "hi": "लॉगआउट"
+  },
+  "login": {
+    "en": "Farmer Login",
+    "hi": "किसान लॉगिन"
+  },
+  "signup": {
+    "en": "Register New Farm",
+    "hi": "नया खेत पंजीकृत करें"
+  }
+}

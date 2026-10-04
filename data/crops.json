@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "Wheat",
+    "hindi_name": "गेहूं",
+    "varieties": ["HD-3086 (Pusa Gautami)", "PBW-550", "DBW-187 (Karan Vandana)", "HD-2967"],
+    "season": "Rabi",
+    "ideal_temp_c": {"min": 12, "max": 25},
+    "soil_types": ["Alluvial", "Clay Loam", "Sandy Loam"],
+    "stages": [
+      {"stage": "Sowing", "duration_days": 10, "gdd_target": 120, "optimal_moisture_pct": 35},
+      {"stage": "Germination & CRI", "duration_days": 21, "gdd_target": 350, "optimal_moisture_pct": 40},
+      {"stage": "Tillering", "duration_days": 40, "gdd_target": 650, "optimal_moisture_pct": 38},
+      {"stage": "Jointing & Booting", "duration_days": 65, "gdd_target": 1050, "optimal_moisture_pct": 42},
+      {"stage": "Flowering & Anthesis", "duration_days": 85, "gdd_target": 1400, "optimal_moisture_pct": 45},
+      {"stage": "Grain Filling / Dough", "duration_days": 110, "gdd_target": 1800, "optimal_moisture_pct": 35},
+      {"stage": "Maturity & Harvest", "duration_days": 135, "gdd_target": 2100, "optimal_moisture_pct": 20}
+    ],
+    "nutrient_needs_kg_ha": {"N": 120, "P": 60, "K": 40},
+    "msp_inr_quintal": 2275,
+    "avg_yield_q_ha": 48.5
+  },
+  {
+    "id": 2,
+    "name": "Paddy (Rice)",
+    "hindi_name": "धान",
+    "varieties": ["Basmati 1121", "PR-126", "Pusa 44", "CSR-30"],
+    "season": "Kharif",
+    "ideal_temp_c": {"min": 22, "max": 35},
+    "soil_types": ["Clay", "Clay Loam", "Silt Clay"],
+    "stages": [
+      {"stage": "Nursery", "duration_days": 25, "gdd_target": 350, "optimal_moisture_pct": 60},
+      {"stage": "Transplanting", "duration_days": 35, "gdd_target": 550, "optimal_moisture_pct": 70},
+      {"stage": "Tillering", "duration_days": 60, "gdd_target": 950, "optimal_moisture_pct": 65},
+      {"stage": "Panicle Initiation", "duration_days": 85, "gdd_target": 1350, "optimal_moisture_pct": 65},
+      {"stage": "Flowering", "duration_days": 105, "gdd_target": 1700, "optimal_moisture_pct": 60},
+      {"stage": "Grain Filling", "duration_days": 125, "gdd_target": 2050, "optimal_moisture_pct": 45},
+      {"stage": "Maturity & Harvest", "duration_days": 145, "gdd_target": 2350, "optimal_moisture_pct": 25}
+    ],
+    "nutrient_needs_kg_ha": {"N": 150, "P": 60, "K": 60},
+    "msp_inr_quintal": 2300,
+    "avg_yield_q_ha": 55.0
+  },
+  {
+    "id": 3,
+    "name": "Mustard",
+    "hindi_name": "सरसों",
+    "varieties": ["Pusa Bold", "Giriraj", "RH-749", "NRCHB-101"],
+    "season": "Rabi",
+    "ideal_temp_c": {"min": 10, "max": 25},
+    "soil_types": ["Sandy Loam", "Loam"],
+    "stages": [
+      {"stage": "Sowing & Emergence", "duration_days": 12, "gdd_target": 140, "optimal_moisture_pct": 30},
+      {"stage": "Vegetative", "duration_days": 35, "gdd_target": 450, "optimal_moisture_pct": 35},
+      {"stage": "Flowering", "duration_days": 65, "gdd_target": 850, "optimal_moisture_pct": 38},
+      {"stage": "Siliqua Formation", "duration_days": 95, "gdd_target": 1300, "optimal_moisture_pct": 32},
+      {"stage": "Maturity & Harvest", "duration_days": 120, "gdd_target": 1650, "optimal_moisture_pct": 20}
+    ],
+    "nutrient_needs_kg_ha": {"N": 80, "P": 40, "K": 40},
+    "msp_inr_quintal": 5650,
+    "avg_yield_q_ha": 21.0
+  },
+  {
+    "id": 4,
+    "name": "Cotton",
+    "hindi_name": "कपास",
+    "varieties": ["Bt Cotton RCH-659", "Bollgard II", "Ankur 3028"],
+    "season": "Kharif",
+    "ideal_temp_c": {"min": 21, "max": 35},
+    "soil_types": ["Black Cotton Soil", "Deep Alluvial"],
+    "stages": [
+      {"stage": "Sowing & Emergence", "duration_days": 15, "gdd_target": 200, "optimal_moisture_pct": 35},
+      {"stage": "Square Formation", "duration_days": 45, "gdd_target": 700, "optimal_moisture_pct": 42},
+      {"stage": "Flowering", "duration_days": 75, "gdd_target": 1200, "optimal_moisture_pct": 45},
+      {"stage": "Boll Development", "duration_days": 115, "gdd_target": 1800, "optimal_moisture_pct": 38},
+      {"stage": "Boll Bursting & Picking", "duration_days": 160, "gdd_target": 2400, "optimal_moisture_pct": 22}
+    ],
+    "nutrient_needs_kg_ha": {"N": 120, "P": 60, "K": 60},
+    "msp_inr_quintal": 7121,
+    "avg_yield_q_ha": 22.5
+  },
+  {
+    "id": 5,
+    "name": "Sugarcane",
+    "hindi_name": "गन्ना",
+    "varieties": ["Co-0238", "Co-0118", "CoLk-94184"],
+    "season": "Annual",
+    "ideal_temp_c": {"min": 20, "max": 38},
+    "soil_types": ["Deep Rich Loam", "Clay Loam"],
+    "stages": [
+      {"stage": "Germination", "duration_days": 45, "gdd_target": 600, "optimal_moisture_pct": 45},
+      {"stage": "Tillering / Formative", "duration_days": 120, "gdd_target": 1600, "optimal_moisture_pct": 50},
+      {"stage": "Grand Growth", "duration_days": 270, "gdd_target": 3800, "optimal_moisture_pct": 55},
+      {"stage": "Ripening & Harvest", "duration_days": 360, "gdd_target": 4800, "optimal_moisture_pct": 35}
+    ],
+    "nutrient_needs_kg_ha": {"N": 250, "P": 115, "K": 115},
+    "msp_inr_quintal": 340,
+    "avg_yield_q_ha": 780.0
+  }
+]

@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Crop Advisory - Digital Control Center</title>
+  <meta name="description" content="Precision agricultural decision-support system for Indian farmers.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- Mobile Drawer Backdrop -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">🌾</div>
+        <div class="sidebar-brand">
+          <h1 data-i18n="app_title">Smart Crop Advisory</h1>
+          <p data-i18n="tagline">Kisan Decision Engine</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <div class="nav-item active" data-view="dashboard">
+          <span class="icon">📊</span>
+          <span data-i18n="nav_dashboard">Dashboard</span>
+        </div>
+        <div class="nav-item" data-view="irrigation">
+          <span class="icon">💧</span>
+          <span data-i18n="nav_irrigation">Irrigation Engine</span>
+        </div>
+        <div class="nav-item" data-view="fertilizer">
+          <span class="icon">🧪</span>
+          <span data-i18n="nav_fertilizer">Nutrient & Fertilizer</span>
+        </div>
+        <div class="nav-item" data-view="crop_health">
+          <span class="icon">🔬</span>
+          <span data-i18n="nav_crop_health">AI Disease Diagnosis</span>
+        </div>
+        <div class="nav-item" data-view="soil_weather">
+          <span class="icon">🌦️</span>
+          <span data-i18n="nav_soil_weather">Soil & Weather</span>
+        </div>
+        <div class="nav-item" data-view="growth">
+          <span class="icon">🌱</span>
+          <span data-i18n="nav_growth">Growth & Harvest</span>
+        </div>
+        <div class="nav-item" data-view="market">
+          <span class="icon">📈</span>
+          <span data-i18n="nav_market">Mandi Intelligence</span>
+        </div>
+        <div class="nav-item" data-view="finance">
+          <span class="icon">💰</span>
+          <span data-i18n="nav_finance">Farm Finance & P&L</span>
+        </div>
+        <div class="nav-item" data-view="machinery">
+          <span class="icon">🚜</span>
+          <span data-i18n="nav_machinery">Machinery Hub</span>
+        </div>
+        <div class="nav-item" data-view="satellite">
+          <span class="icon">🛰️</span>
+          <span data-i18n="nav_satellite">Satellite Disaster</span>
+        </div>
+        <div class="nav-item" data-view="insurance">
+          <span class="icon">📄</span>
+          <span data-i18n="nav_insurance">PMFBY Claim Dossier</span>
+        </div>
+        <div class="nav-item" data-view="schemes">
+          <span class="icon">🏛️</span>
+          <span data-i18n="nav_schemes">Government Schemes</span>
+        </div>
+        <div class="nav-item" data-view="ussd">
+          <span class="icon">📟</span>
+          <span data-i18n="nav_ussd">USSD / SMS Simulator</span>
+        </div>
+        <div class="nav-item" data-view="demo_center" style="background: rgba(220, 38, 38, 0.15); color: #fca5a5;">
+          <span class="icon">🎯</span>
+          <span data-i18n="nav_demo_center">Judges' Demo Center</span>
+          <span class="nav-badge" style="background: #dc2626; color: white;">DEMO</span>
+        </div>
+        <div class="nav-item" data-view="audit">
+          <span class="icon">📜</span>
+          <span data-i18n="nav_audit">Audit Trail & Logs</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="farmer-badge-info">
+          <div id="farmer-avatar" class="farmer-avatar">R</div>
+          <div style="flex: 1; overflow: hidden;">
+            <div id="farmer-display-name" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ravi Kumar</div>
+            <div id="farmer-display-location" style="font-size: 0.72rem; color: var(--text-sidebar-muted);">Karnal, Haryana</div>
+          </div>
+          <button onclick="Auth.logout()" title="Logout" style="color: var(--text-sidebar-muted); font-size: 1.1rem; padding: 4px;">⏻</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Working Area -->
+    <div class="main-wrapper">
+
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          
+          <div class="field-select-wrapper">
+            <label for="global-field-select" data-i18n="field_switcher">Parcel:</label>
+            <select id="global-field-select" class="field-dropdown">
+              <option value="1">FLD-01: North Canal Wheat Plot</option>
+            </select>
+          </div>
+
+          <div class="telemetry-pulse">
+            <span class="pulse-dot"></span>
+            <span>LIVE SIMULATED</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button id="topbar-simulate-btn" class="btn btn-secondary btn-sm" title="Trigger realistic telemetry fluctuation">
+            📡 Simulate Telemetry
+          </button>
+          <button class="btn btn-danger btn-sm" onclick="App.switchView('demo_center')">
+            🎯 Demo Center
+          </button>
+          <button id="lang-toggle-btn" class="lang-toggle" title="Switch English / Hindi">
+            🌐 हिन्दी
+          </button>
+          <button id="theme-toggle-btn" class="theme-toggle" title="Toggle Dark/Light Mode">
+            🌙 Dark
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Container -->
+      <main class="content-body">
+
+        <!-- ========================================================= -->
+        <!-- VIEW 1: DASHBOARD -->
+        <!-- ========================================================= -->
+        <section id="view-dashboard" class="view-section active">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🌾</span> <span data-i18n="nav_dashboard">Farm Command Center</span></h2>
+              <p>Real-time agricultural telemetry, crop vigor indices, and automated agronomic recommendations.</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary btn-sm" onclick="App.switchView('irrigation')">💧 Irrigation Advice</button>
+              <button class="btn btn-secondary btn-sm" onclick="App.switchView('crop_health')">🔬 Scan Crop Leaf</button>
+            </div>
+          </div>
+
+          <!-- Top Metric Cards Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span>Crop & Variety</span>
+                <span class="metric-icon">🌱</span>
+              </div>
+              <div id="dash-crop-name" class="metric-value" style="font-size: 1.35rem;">Wheat (HD-3086)</div>
+              <div id="dash-crop-stage" class="metric-sub">Flowering & Anthesis</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span data-i18n="soil_moisture">Soil Moisture (15cm)</span>
+                <span class="metric-icon">💧</span>
+              </div>
+              <div id="dash-soil-moisture" class="metric-value">34.0%</div>
+              <div class="metric-sub">
+                <span id="dash-soil-badge" class="badge badge-optimal">Optimal</span>
+                <span class="text-muted">Target: 36%</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span>Agro-Met Ambient</span>
+                <span class="metric-icon">🌦️</span>
+              </div>
+              <div id="dash-temp" class="metric-value">27.4°C</div>
+              <div class="metric-sub">
+                Humidity: <b id="dash-humidity">68%</b> • Rain: <b id="dash-rain-prob">18%</b>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span data-i18n="crop_health">Crop Health Score</span>
+                <span class="metric-icon">🛡️</span>
+              </div>
+              <div id="dash-health-score" class="metric-value">92%</div>
+              <div class="metric-sub">
+                <span id="dash-risk-badge" class="badge badge-low">LOW RISK</span>
+                <span class="text-muted">NDVI: 0.72</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span>Est. Harvest Date</span>
+                <span class="metric-icon">📅</span>
+              </div>
+              <div id="dash-harvest-date" class="metric-value" style="font-size: 1.35rem;">12 Apr 2027</div>
+              <div class="metric-sub">Days to Harvest: <b>~34d</b></div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span>Mandi Modal Price</span>
+                <span class="metric-icon">📈</span>
+              </div>
+              <div id="dash-mandi-price" class="metric-value" style="color: var(--success); font-size: 1.45rem;">₹2,490/Qtl</div>
+              <div class="metric-sub">+₹215 above MSP (Rs 2275)</div>
+            </div>
+          </div>
+
+          <!-- Crop Growth Timeline Card -->
+          <div class="card">
+            <div class="card-title">
+              <span>🌾 Crop Growth Lifecycle & Phenology Stage</span>
+              <button class="btn btn-secondary btn-sm" onclick="App.switchView('growth')">Modify Stage Timeline →</button>
+            </div>
+            <div id="growth-timeline" class="growth-timeline-container">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Middle Split Grid: 7-Day Moisture Trend & Alerts -->
+          <div class="layout-grid-2">
+            <!-- Soil Moisture Trend Chart -->
+            <div class="card">
+              <div class="card-title">
+                <span>📈 7-Day Root-Zone Soil Moisture Telemetry (%)</span>
+                <span class="badge badge-info">IoT Sensor: SNS-WHT-01</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
+                Continuously tracks volumetric moisture at 15cm depth. If moisture falls below the dashed critical threshold (25%), irrigation alert is triggered.
+              </p>
+              <div id="soil-chart-container" class="chart-container">
+                <!-- SVG chart rendered here -->
+              </div>
+            </div>
+
+            <!-- Active Agronomic Alerts & Advisories -->
+            <div class="card">
+              <div class="card-title">
+                <span>🔔 Actionable Farm Advisories</span>
+                <span class="badge badge-warning">Active Priority</span>
+              </div>
+              <div id="dash-alerts-list">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Grid: Recent Activities & Mandi Spot Highlight -->
+          <div class="layout-grid-equal">
+            <!-- Recent Field Activities (Audit Trail) -->
+            <div class="card">
+              <div class="card-title">
+                <span>📜 Recent Farm Action Logs</span>
+                <button class="btn btn-secondary btn-sm" onclick="App.switchView('audit')">View All Logs →</button>
+              </div>
+              <div id="dash-activities-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Mandi Market Intelligence Highlight -->
+            <div class="card">
+              <div class="card-title">
+                <span>🏷️ Live APMC Mandi Rates Highlight</span>
+                <button class="btn btn-secondary btn-sm" onclick="App.switchView('market')">Compare Mandis →</button>
+              </div>
+              <div id="dash-mandi-details">
+                <!-- Dynamically populated -->
+              </div>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 0.78rem; color: var(--text-muted);">
+                * Demo Market Data simulated from regional Agricultural Produce Market Committees (APMC) in Haryana.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 2: IRRIGATION ENGINE -->
+        <!-- ========================================================= -->
+        <section id="view-irrigation" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>💧</span> <span data-i18n="nav_irrigation">Irrigation Decision Support Engine</span></h2>
+              <p>Scientific FAO-56 dual crop coefficient model calculating required water depth, volume, and pump durations.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Interactive Simulator / Input Panel -->
+            <div class="card">
+              <div class="card-title">
+                <span>Field Moisture & Soil Configuration</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Simulate Root-Zone Soil Moisture: <b id="irrig-slider-val" style="color: var(--primary-light);">34%</b>
+                </label>
+                <input type="range" id="irrig-moisture-slider" min="10" max="65" value="34" step="1" style="width: 100%; cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+                  <span>10% (Wilting Point)</span>
+                  <span>25% (Critical Stress)</span>
+                  <span>36% (Field Capacity)</span>
+                  <span>60% (Saturation)</span>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Soil Texture Type</label>
+                  <select id="irrig-soil-type" class="form-control">
+                    <option value="Alluvial Clay Loam">Alluvial Clay Loam (Haryana)</option>
+                    <option value="Sandy Loam">Sandy Loam</option>
+                    <option value="Clay">Heavy Clay</option>
+                    <option value="Black Cotton Soil">Black Cotton Soil</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Crop Stage</label>
+                  <input type="text" class="form-control" value="Flowering & Anthesis" readonly>
+                </div>
+              </div>
+
+              <div style="margin-top: 10px; display: flex; gap: 10px;">
+                <button id="btn-recalculate-irrig" class="btn btn-primary">
+                  Recalculate Decision Engine
+                </button>
+                <button id="btn-apply-irrigation" class="btn btn-secondary">
+                  💧 Execute & Record Irrigation
+                </button>
+              </div>
+            </div>
+
+            <!-- Recommendation Result Card -->
+            <div class="card" style="border-top: 4px solid var(--primary-light);">
+              <div class="card-title">
+                <span>Irrigation Prescription Output</span>
+                <span id="irrig-status-badge" class="badge badge-optimal">OPTIMAL</span>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                <div style="background: var(--bg-muted); padding: 12px; border-radius: var(--radius-sm);">
+                  <div class="text-muted" style="font-size: 0.75rem;">WATER DEPTH</div>
+                  <div id="irrig-water-depth" class="font-bold" style="font-size: 1.4rem; color: var(--primary-light);">0 mm</div>
+                </div>
+
+                <div style="background: var(--bg-muted); padding: 12px; border-radius: var(--radius-sm);">
+                  <div class="text-muted" style="font-size: 0.75rem;">WATER VOLUME</div>
+                  <div id="irrig-water-volume" class="font-bold" style="font-size: 1.4rem; color: var(--primary-light);">0 m³</div>
+                </div>
+
+                <div style="background: var(--bg-muted); padding: 12px; border-radius: var(--radius-sm);">
+                  <div class="text-muted" style="font-size: 0.75rem;">PUMP RUNTIME (7.5 HP)</div>
+                  <div id="irrig-pump-duration" class="font-bold" style="font-size: 1.4rem; color: var(--text-main);">0.0 Hours</div>
+                </div>
+
+                <div style="background: var(--bg-muted); padding: 12px; border-radius: var(--radius-sm);">
+                  <div class="text-muted" style="font-size: 0.75rem;">URGENCY WINDOW</div>
+                  <div id="irrig-urgency" class="font-bold" style="font-size: 1.1rem; color: var(--warning);">MONITOR</div>
+                </div>
+              </div>
+
+              <div style="padding: 12px; background: var(--bg-muted); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5;">
+                <b>Agronomic Explanation:</b>
+                <p id="irrig-explanation" style="margin-top: 4px; color: var(--text-main);">
+                  Soil moisture is within optimal root-zone available capacity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 3: NUTRIENT & FERTILIZER -->
+        <!-- ========================================================= -->
+        <section id="view-fertilizer" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🧪</span> <span data-i18n="nav_fertilizer">Nutrient & Fertilizer Decision Engine</span></h2>
+              <p>Tailored soil nutrient replenishment guidelines with subsidized pricing and precise bag estimates.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Soil Test Input Form -->
+            <div class="card">
+              <div class="card-title">
+                <span>Soil Diagnostic Test Input (ppm / pH)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Nitrogen (N ppm)</label>
+                  <input type="number" id="fert-input-n" class="form-control" value="138" step="1">
+                  <small class="text-muted">Low &lt;120, Medium 120-250</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phosphorus (P ppm)</label>
+                  <input type="number" id="fert-input-p" class="form-control" value="24.5" step="0.5">
+                  <small class="text-muted">Low &lt;10, Medium 10-25</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Potassium (K ppm)</label>
+                  <input type="number" id="fert-input-k" class="form-control" value="182" step="1">
+                  <small class="text-muted">Low &lt;100, Medium 100-250</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Soil pH</label>
+                  <input type="number" id="fert-input-ph" class="form-control" value="7.3" step="0.1">
+                  <small class="text-muted">Neutral 6.5 - 7.5</small>
+                </div>
+              </div>
+
+              <button id="btn-recalc-fertilizer" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                Generate Fertilizer Prescription →
+              </button>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="card">
+              <div class="card-title">
+                <span>Prescription Summary</span>
+                <span id="fert-status-badge" class="badge badge-success">Balanced</span>
+              </div>
+              <div style="padding: 16px; background: var(--bg-muted); border-radius: var(--radius-sm); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.8rem;">TOTAL ESTIMATED COST</div>
+                  <div id="fert-total-cost" class="font-bold" style="font-size: 1.6rem; color: var(--primary-light);">₹0</div>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-align: right;">
+                  Govt Subsidized Urea: Rs 266.50/45kg<br/>
+                  DAP: Rs 1350/50kg • MOP: Rs 1700/50kg
+                </div>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                All prescriptions adhere to Indian Council of Agricultural Research (ICAR) nutrient management guidelines.
+              </p>
+            </div>
+          </div>
+
+          <!-- Fertilizer Recommendations Detailed List -->
+          <div id="fertilizer-recs-list">
+            <!-- Dynamically populated -->
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 4: AI DISEASE DIAGNOSIS -->
+        <!-- ========================================================= -->
+        <section id="view-crop_health" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🔬</span> <span data-i18n="nav_crop_health">AI Crop Pathology & Disease Diagnosis</span></h2>
+              <p>Multimodal vision diagnostics backed by the robust OfflineFallbackManager rule engine.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Upload & Input Card -->
+            <div class="card">
+              <div class="card-title">
+                <span>Foliar Disease Scanner</span>
+              </div>
+
+              <div id="disease-dropzone" class="upload-dropzone">
+                <input type="file" id="disease-file-input" accept="image/*" style="display: none;">
+                <img id="disease-preview-img" class="upload-preview" style="display: none;" alt="Leaf Preview">
+                <div id="dropzone-prompt">
+                  <div style="font-size: 2.2rem; margin-bottom: 6px;">📷</div>
+                  <div class="font-bold" style="color: var(--text-main);">Click or Drag Crop Leaf Photo Here</div>
+                  <div class="text-muted" style="font-size: 0.78rem; margin-top: 4px;">Supports JPG, PNG, WEBP from mobile camera or storage</div>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;">
+                <div class="form-group">
+                  <label class="form-label">Crop Name</label>
+                  <select id="disease-crop-select" class="form-control">
+                    <option value="Wheat">Wheat (गेहूं)</option>
+                    <option value="Paddy (Rice)">Paddy / Rice (धान)</option>
+                    <option value="Mustard">Mustard (सरसों)</option>
+                    <option value="Cotton">Cotton (कपास)</option>
+                    <option value="Sugarcane">Sugarcane (गन्ना)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Crop Stage</label>
+                  <select id="disease-stage-select" class="form-control">
+                    <option value="Flowering & Anthesis">Flowering & Anthesis</option>
+                    <option value="Tillering">Tillering</option>
+                    <option value="Jointing & Booting">Jointing & Booting</option>
+                    <option value="Vegetative">Vegetative</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Observed Symptoms / Clues (Optional)</label>
+                <input type="text" id="disease-symptoms-input" class="form-control" placeholder="e.g. Yellow powdery stripes on leaves, drying tips...">
+              </div>
+
+              <button id="btn-analyze-disease" class="btn btn-primary" style="width: 100%;">
+                🔬 Run Disease Diagnostic Scan
+              </button>
+
+              <div id="diagnostic-status-box" style="display: none; margin-top: 12px; padding: 10px; background: var(--bg-muted); border-radius: var(--radius-sm); font-size: 0.82rem;"></div>
+            </div>
+
+            <!-- Historical Scans Card -->
+            <div class="card">
+              <div class="card-title">
+                <span>Recent Diagnostics History</span>
+              </div>
+              <div id="disease-history-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Container (Scroll target) -->
+          <div id="disease-result-container" style="display: none; margin-top: 20px;"></div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 5: SOIL & WEATHER TELEMETRY -->
+        <!-- ========================================================= -->
+        <section id="view-soil_weather" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🌦️</span> <span data-i18n="nav_soil_weather">Soil Telemetry & Agro-Met Station</span></h2>
+              <p>Ground IoT sensor probes combined with ICAR-CSSRI Karnal automated weather station feeds.</p>
+            </div>
+            <button id="btn-simulate-sensor" class="btn btn-primary btn-sm">
+              📡 Simulate Sensor Telemetry Update
+            </button>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">Moisture (15cm)</div>
+              <div id="soil-val-15cm" class="metric-value">34.0%</div>
+              <div class="metric-sub">Surface Root Zone</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Moisture (45cm)</div>
+              <div id="soil-val-45cm" class="metric-value">38.5%</div>
+              <div class="metric-sub">Deep Subsoil Zone</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Soil Temperature</div>
+              <div id="soil-val-temp" class="metric-value">22.4°C</div>
+              <div class="metric-sub">Optimal microbial activity</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Electrical Cond. (EC)</div>
+              <div id="soil-val-ec" class="metric-value">0.62 dS/m</div>
+              <div class="metric-sub">Non-saline (&lt; 2.0)</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Soil pH</div>
+              <div id="soil-val-ph" class="metric-value">7.3</div>
+              <div class="metric-sub">Neutral loam</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Available Nitrogen</div>
+              <div id="soil-val-n" class="metric-value">138 ppm</div>
+              <div class="metric-sub">Medium class</div>
+            </div>
+          </div>
+
+          <!-- Weather 5-Day Forecast Grid -->
+          <div class="card">
+            <div class="card-title">
+              <span>🌤️ 5-Day Karnal Agro-Meteorological Forecast</span>
+              <span class="badge badge-info">ICAR-CSSRI Automatic Weather Station</span>
+            </div>
+            <div id="weather-forecast-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 10px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Soil History Table -->
+          <div class="card">
+            <div class="card-title">
+              <span>📜 Real-Time Soil Sensor Telemetry Log</span>
+            </div>
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>15cm Moisture</th>
+                    <th>45cm Moisture</th>
+                    <th>Soil Temp</th>
+                    <th>pH</th>
+                    <th>Nitrogen</th>
+                    <th>Telemetry Source</th>
+                  </tr>
+                </thead>
+                <tbody id="soil-history-tbody">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 6: CROP GROWTH & HARVEST -->
+        <!-- ========================================================= -->
+        <section id="view-growth" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🌱</span> <span data-i18n="nav_growth">Crop Growth & Phenology Tracking</span></h2>
+              <p>Growing Degree Days (GDD), vegetative vigor, plant height, and estimated harvest date.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Timeline Simulator Controls -->
+            <div class="card">
+              <div class="card-title">
+                <span>Update Phenological Stage</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Current Stage</label>
+                <select id="growth-stage-input" class="form-control">
+                  <option value="Sowing & Germination">1. Sowing & Germination (0-10d)</option>
+                  <option value="Crown Root Initiation (CRI)">2. Crown Root Initiation (10-21d)</option>
+                  <option value="Tillering">3. Tillering (21-45d)</option>
+                  <option value="Jointing & Booting">4. Jointing & Booting (45-70d)</option>
+                  <option value="Flowering & Anthesis" selected>5. Flowering & Anthesis (70-95d)</option>
+                  <option value="Grain Filling / Dough">6. Grain Filling / Dough (95-120d)</option>
+                  <option value="Maturity & Harvest">7. Maturity & Harvest (120-140d)</option>
+                </select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                  <label class="form-label">Cumulative GDD (°C-days)</label>
+                  <input type="number" id="growth-gdd-input" class="form-control" value="1420">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Canopy Height (cm)</label>
+                  <input type="number" id="growth-height-input" class="form-control" value="88">
+                </div>
+              </div>
+
+              <button id="btn-update-crop-stage" class="btn btn-primary" style="width: 100%;">
+                Advance Crop Stage & Update Timeline
+              </button>
+            </div>
+
+            <!-- Phenology Milestones Log -->
+            <div class="card">
+              <div class="card-title">
+                <span>Logged Crop Milestones</span>
+              </div>
+              <div class="data-table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Stage</th>
+                      <th>Age</th>
+                      <th>GDD Target</th>
+                      <th>Height</th>
+                      <th>Vigor</th>
+                    </tr>
+                  </thead>
+                  <tbody id="growth-history-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 7: MANDI MARKET INTELLIGENCE -->
+        <!-- ========================================================= -->
+        <section id="view-market" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>📈</span> <span data-i18n="nav_market">Mandi Market Intelligence & APMC Rates</span></h2>
+              <p>Real-time commodity price tracking across Karnal, Gharaunda, Panipat, Kurukshetra, and Taraori.</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <select id="mandi-crop-filter" class="form-control" style="width: 160px;">
+                <option value="All">All Crops</option>
+                <option value="Wheat" selected>Wheat (गेहूं)</option>
+                <option value="Paddy">Paddy / Basmati</option>
+                <option value="Mustard">Mustard</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Market Summary Bar -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">Highest Quoted Market</div>
+              <div id="market-top-mandi" class="metric-value" style="font-size: 1.3rem;">Panipat Mandi</div>
+              <div class="metric-sub">Best regional realization</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Top Spot Modal Price</div>
+              <div id="market-top-price" class="metric-value" style="color: var(--success);">₹2,515/Qtl</div>
+              <div class="metric-sub">+₹240 over MSP</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">District Average Rate</div>
+              <div id="market-avg-price" class="metric-value">₹2,483/Qtl</div>
+              <div class="metric-sub">Across 5 monitored mandis</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Sovereign MSP Guarantee</div>
+              <div class="metric-value">₹2,275/Qtl</div>
+              <div class="metric-sub">Govt of India CACP Bench</div>
+            </div>
+          </div>
+
+          <!-- Mandi Rates Table -->
+          <div class="card">
+            <div class="card-title">
+              <span>APMC Market Yard Daily Arrivals & Rates</span>
+              <span class="badge badge-info">Demo Market Data</span>
+            </div>
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Mandi Name</th>
+                    <th>Location</th>
+                    <th>Crop (Variety)</th>
+                    <th>Modal Price</th>
+                    <th>Govt MSP</th>
+                    <th>Diff vs MSP</th>
+                    <th>Trend</th>
+                    <th>Arrivals</th>
+                  </tr>
+                </thead>
+                <tbody id="mandi-table-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 8: FARM FINANCE & P&L -->
+        <!-- ========================================================= -->
+        <section id="view-finance" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>💰</span> <span data-i18n="nav_finance">Farm Financial Ledger & Profit/Loss</span></h2>
+              <p>Double-entry expense tracking, harvest sales records, and calculated Return on Investment (ROI).</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button id="btn-add-expense-modal" class="btn btn-secondary btn-sm">+ Log Expense</button>
+              <button id="btn-add-sale-modal" class="btn btn-primary btn-sm">+ Record Sale</button>
+            </div>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">Total Farm Expenses</div>
+              <div id="fin-total-expense" class="metric-value" style="color: var(--danger);">₹0</div>
+              <div class="metric-sub">Seeds, Fertilizers, Diesel, Labor</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Total Harvest Revenue</div>
+              <div id="fin-total-revenue" class="metric-value" style="color: var(--success);">₹0</div>
+              <div class="metric-sub">Offloaded Mandi Sales</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Net Farm Profit / Margin</div>
+              <div id="fin-net-profit" class="metric-value">₹0</div>
+              <div class="metric-sub">Revenue minus Expenses</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Return on Investment (ROI)</div>
+              <div id="fin-roi" class="metric-value" style="color: var(--primary-light);">0%</div>
+              <div class="metric-sub">Operational efficiency</div>
+            </div>
+          </div>
+
+          <!-- Split: Category Breakdown & Tables -->
+          <div class="layout-grid-2">
+            <!-- Expenses Ledger -->
+            <div class="card">
+              <div class="card-title">
+                <span>Recent Farm Operating Expenses</span>
+              </div>
+              <div class="data-table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Category</th>
+                      <th>Item</th>
+                      <th>Qty</th>
+                      <th class="text-right">Cost (INR)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="expenses-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Expense Breakdown Chart -->
+            <div class="card">
+              <div class="card-title">
+                <span>Expense Category Distribution</span>
+              </div>
+              <div id="finance-chart-container">
+                <!-- Bars dynamically rendered -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Sales Table -->
+          <div class="card">
+            <div class="card-title">
+              <span>Harvest Sales & Mandi Offload Records</span>
+            </div>
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sale Date</th>
+                    <th>Crop</th>
+                    <th>Buyer / Mandi</th>
+                    <th>Quantity</th>
+                    <th>Rate / Qtl</th>
+                    <th class="text-right">Net Revenue</th>
+                  </tr>
+                </thead>
+                <tbody id="sales-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 9: MACHINERY HUB -->
+        <!-- ========================================================= -->
+        <section id="view-machinery" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🚜</span> <span data-i18n="nav_machinery">Custom Hiring Center & Machinery Hub</span></h2>
+              <p>Reserve modern farm implements including Happy Seeders, Drone Sprayers, and Laser Levelers.</p>
+            </div>
+          </div>
+
+          <div id="machinery-catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <!-- Populated dynamically -->
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Machinery Service & Reservation Log</span>
+            </div>
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Equipment Activity</th>
+                    <th>Duration</th>
+                    <th>Rental Cost</th>
+                    <th>Booking Status</th>
+                  </tr>
+                </thead>
+                <tbody id="machinery-bookings-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 10: SATELLITE DISASTER ASSESSMENT -->
+        <!-- ========================================================= -->
+        <section id="view-satellite" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🛰️</span> <span data-i18n="nav_satellite">Sentinel-2 Satellite Disaster & NDVI Risk</span></h2>
+              <p>Remote sensing telemetry detecting vegetative vigor drop, flood inundation, and severe drought stress.</p>
+            </div>
+            <span class="badge badge-info">SIMULATED SATELLITE TELEMETRY</span>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">Disaster Classification</div>
+              <div id="sat-disaster-type" class="metric-value" style="font-size: 1.15rem; color: var(--danger);">Normal Canopy</div>
+              <div class="metric-sub"><span id="sat-severity-badge" class="badge badge-low">LOW RISK</span></div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Baseline NDVI</div>
+              <div id="sat-base-ndvi" class="metric-value">0.74</div>
+              <div class="metric-sub">Healthy Wheat Canopy</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Current Post-Event NDVI</div>
+              <div id="sat-cur-ndvi" class="metric-value">0.72</div>
+              <div class="metric-sub">Spectral reflection NIR</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">NDVI Anomaly Index</div>
+              <div id="sat-anomaly-pct" class="metric-value">-2.7%</div>
+              <div class="metric-sub">Deviation from 5-yr norm</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Affected Acreage</div>
+              <div id="sat-affected-area" class="metric-value">0.0 Ha</div>
+              <div class="metric-sub">Cadastral plot overlap</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card-header">Est. Financial Loss</div>
+              <div id="sat-fin-loss" class="metric-value" style="color: var(--danger);">₹0</div>
+              <div class="metric-sub">Yield Loss: <b id="sat-yield-loss">0%</b></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Normalized Difference Vegetation Index (NDVI) Scale</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+              Values &lt; 0.2 indicate water or bare soil; 0.2 - 0.4 indicate sparse or stressed crop; &gt; 0.6 indicate dense, thriving chlorophyll vigor.
+            </p>
+            <div id="ndvi-spectrum-bar" style="margin-bottom: 24px;"></div>
+            <div style="text-align: right;">
+              <button class="btn btn-primary" onclick="App.switchView('insurance')">
+                Generate PMFBY Claim Dossier From Satellite Data →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 11: PMFBY INSURANCE DOSSIER -->
+        <!-- ========================================================= -->
+        <section id="view-insurance" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>📄</span> <span data-i18n="nav_insurance">Pradhan Mantri Fasal Bima Yojana (PMFBY)</span></h2>
+              <p>Official localized crop loss claim dossier generator compiling remote sensing logs and cadastral parcel data.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Form to Generate Claim -->
+            <div class="card">
+              <div class="card-title">
+                <span>Compile PMFBY Claim Dossier / Draft</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Notified Peril / Disaster Type</label>
+                <select id="claim-peril-type" class="form-control">
+                  <option value="Flash Flood / Crop Submersion">Flash Flood / Crop Submersion (जलभराव)</option>
+                  <option value="Severe Meteorological Drought">Severe Drought / Moisture Stress (सूखा)</option>
+                  <option value="Hailstorm & Cyclone">Hailstorm & Heavy Winds (ओलावृष्टि)</option>
+                  <option value="Widespread Pest / Rust Epidemic">Widespread Pest / Rust Epidemic (कीट / रोग प्रकोप)</option>
+                </select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                  <label class="form-label">Affected Area (Hectares)</label>
+                  <input type="number" id="claim-affected-ha" class="form-control" value="1.8" step="0.1">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Assessed Financial Loss (INR)</label>
+                  <input type="number" id="claim-loss-amount" class="form-control" value="52000" step="1000">
+                </div>
+              </div>
+
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; background: var(--bg-muted); padding: 10px; border-radius: var(--radius-sm);">
+                <b>Statutory Notice:</b> Generates a <i>PMFBY Claim Dossier / Draft</i>. Does not constitute sovereign approval until surveyed by designated agriculture loss assessors.
+              </div>
+
+              <button id="btn-generate-pmfby-claim" class="btn btn-primary" style="width: 100%;">
+                📄 Compile & Generate Official PDF Claim Dossier
+              </button>
+            </div>
+
+            <!-- PDF Claim Explainer -->
+            <div class="card" style="border-top: 4px solid var(--primary-light);">
+              <div class="card-title">
+                <span>Dossier Package Inclusions</span>
+              </div>
+              <ul style="padding-left: 20px; font-size: 0.85rem; line-height: 1.8; color: var(--text-main);">
+                <li>✓ <b>Beneficiary Farmer Details:</b> Aadhaar/KCC, Village, District, Phone</li>
+                <li>✓ <b>Cadastral Parcel Identification:</b> Field Code, Area, Sowing Date</li>
+                <li>✓ <b>Multi-Spectral Remote Sensing:</b> Sentinel-2 Baseline vs Post-Event NDVI</li>
+                <li>✓ <b>Ground IoT Telemetry Evidence:</b> Sustained root saturation logs</li>
+                <li>✓ <b>Loss Quantification:</b> Yield shortfall percentage and claim cap</li>
+                <li>✓ <b>Statutory Farmer Declaration:</b> Formal sign-off and surveyor block</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="generated-claim-result" style="display: none;"></div>
+
+          <!-- Existing Claims Table -->
+          <div class="card" style="margin-top: 20px;">
+            <div class="card-title">
+              <span>Filing History & Downloadable Claim Dossiers</span>
+            </div>
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Claim Number</th>
+                    <th>Field</th>
+                    <th>Peril Type</th>
+                    <th>Area (Ha)</th>
+                    <th>Loss Claimed</th>
+                    <th>Status</th>
+                    <th>Official Document</th>
+                  </tr>
+                </thead>
+                <tbody id="insurance-claims-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 12: GOVERNMENT SCHEMES -->
+        <!-- ========================================================= -->
+        <section id="view-schemes" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>🏛️</span> <span data-i18n="nav_schemes">National Agricultural Welfare Schemes</span></h2>
+              <p>Key Central & State welfare initiatives, eligibility criteria, and direct benefit portals.</p>
+            </div>
+          </div>
+
+          <div id="schemes-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+            <!-- Populated dynamically -->
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 13: USSD / SMS SIMULATOR -->
+        <!-- ========================================================= -->
+        <section id="view-ussd" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>📟</span> <span data-i18n="nav_ussd">USSD & Offline Farmer Telephony Simulator</span></h2>
+              <p>Simulating <b>*515#</b> Kisan Mobile Gateway for basic 2G feature phones without internet.</p>
+            </div>
+          </div>
+
+          <div class="layout-grid-2">
+            <!-- Retro Phone Mockup -->
+            <div>
+              <div class="ussd-phone-mockup">
+                <div style="text-align: center; font-size: 0.75rem; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 8px;">
+                  BHARAT KISAN 2G TELECOM
+                </div>
+                
+                <div id="ussd-terminal-screen" class="ussd-screen"></div>
+
+                <div class="ussd-input-row">
+                  <input type="text" id="ussd-code-input" class="ussd-input" value="*515#" placeholder="*515#">
+                  <button id="ussd-send-btn" class="btn btn-primary btn-sm">SEND</button>
+                  <button id="ussd-clear-btn" class="btn btn-secondary btn-sm">CLR</button>
+                </div>
+
+                <div class="ussd-keypad">
+                  <div class="ussd-key" data-val="1">1</div>
+                  <div class="ussd-key" data-val="2">2</div>
+                  <div class="ussd-key" data-val="3">3</div>
+                  <div class="ussd-key" data-val="4">4</div>
+                  <div class="ussd-key" data-val="5">5</div>
+                  <div class="ussd-key" data-val="6">6</div>
+                  <div class="ussd-key" data-val="7">7</div>
+                  <div class="ussd-key" data-val="8">8</div>
+                  <div class="ussd-key" data-val="9">9</div>
+                  <div class="ussd-key" data-val="*">*</div>
+                  <div class="ussd-key" data-val="0">0</div>
+                  <div class="ussd-key" data-val="#">#</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Explainer and Quick Dialers -->
+            <div class="card">
+              <div class="card-title">
+                <span>Quick USSD Dial Codes</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
+                In remote rural areas with zero 4G/5G data connectivity, farmers can dial standard GSM shortcodes to query real-time root soil telemetry, mandi prices, and weather advisories.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="Ussd.dialShortcut('*515#')">
+                  📞 <b>*515#</b> - Main Advisory Menu
+                </button>
+                <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="Ussd.dialShortcut('*515*1#')">
+                  💧 <b>*515*1#</b> - Query Soil Moisture & Water Urgency
+                </button>
+                <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="Ussd.dialShortcut('*515*2#')">
+                  📈 <b>*515*2#</b> - Query Regional Mandi Rates
+                </button>
+                <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="Ussd.dialShortcut('*515*3#')">
+                  🌦️ <b>*515*3#</b> - Agro-Met Weather Advisory
+                </button>
+                <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="Ussd.dialShortcut('*515*4#')">
+                  📄 <b>*515*4#</b> - Check PMFBY Claim Status
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 14: JUDGES' DEMO CENTER (Section 26) -->
+        <!-- ========================================================= -->
+        <section id="view-demo_center" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2 style="color: #dc2626;"><span>🎯</span> <span data-i18n="nav_demo_center">Judges' & Evaluator Demo Center</span></h2>
+              <p>Simulate complete agricultural crises to observe live cause → telemetry shift → analytics → actionable advisory → audit chain.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="App.resetDemoDatabase()">
+              ↺ Reset All Demo Data to Baseline
+            </button>
+          </div>
+
+          <div id="scenario-active-display" style="display: none;"></div>
+
+          <div class="scenarios-grid">
+            <!-- Scenario 1: Severe Drought -->
+            <div class="scenario-btn" onclick="App.runScenario('severe_drought')">
+              <h4><span>☀️</span> Severe Drought Crisis</h4>
+              <p>Triggers intense heatwave (36.8°C), soil moisture collapse to 14.5%, and urgent 60mm irrigation advisory.</p>
+              <div class="chain-preview">
+                Cause: Rain Deficit → Soil: 14.5% → Satellite: -40.5% NDVI → Urgency: Immediate
+              </div>
+            </div>
+
+            <!-- Scenario 2: Flash Flood -->
+            <div class="scenario-btn" onclick="App.runScenario('flash_flood')">
+              <h4><span>🌊</span> Flash Flood / Inundation</h4>
+              <p>Simulates 114mm cloudburst, root-zone saturation (78.5%), and compiles a formal PMFBY claim dossier PDF.</p>
+              <div class="chain-preview">
+                Cause: 114mm Rain → Soil: 78.5% → Satellite: -48.6% NDVI → PMFBY Dossier PDF
+              </div>
+            </div>
+
+            <!-- Scenario 3: Yellow Rust -->
+            <div class="scenario-btn" onclick="App.runScenario('yellow_rust')">
+              <h4><span>🌾</span> Yellow Stripe Rust Outbreak</h4>
+              <p>Simulates cool moist weather triggering fungal pustules, 85% risk, and Tilt chemical/organic prescriptions.</p>
+              <div class="chain-preview">
+                Cause: 94% Humidity → Pathogen: Puccinia → Health: 61% → Propiconazole Spray
+              </div>
+            </div>
+
+            <!-- Scenario 4: Nitrogen Deficiency -->
+            <div class="scenario-btn" onclick="App.runScenario('nitrogen_deficiency')">
+              <h4><span>🧪</span> Nitrogen Depletion & Chlorosis</h4>
+              <p>Plunges soil N to 68 ppm, triggers basal yellowing alert, and recommends 3.2 bags of Neem Coated Urea.</p>
+              <div class="chain-preview">
+                Cause: Leaching → Soil N: 68 ppm → Recommendation: 144kg Urea (Rs 852)
+              </div>
+            </div>
+
+            <!-- Scenario 5: Mandi Price Crash -->
+            <div class="scenario-btn" onclick="App.runScenario('mandi_crash')">
+              <h4><span>📉</span> Mandi Price Slump Below MSP</h4>
+              <p>Simulates market glut depressing Wheat spot price to Rs 1,980 (-Rs 295 below MSP), advising warehouse storage.</p>
+              <div class="chain-preview">
+                Cause: Market Glut → Spot: Rs 1,980 (-14.5%) → Advisory: Avail FCI / WDRA
+              </div>
+            </div>
+
+            <!-- Scenario 6: Mandi Price Spike -->
+            <div class="scenario-btn" onclick="App.runScenario('mandi_spike')">
+              <h4><span>📈</span> Mandi Spot Bull Run (+16%)</h4>
+              <p>Simulates surge in export demand driving Wheat to Rs 2,860 (+Rs 585 above MSP), advising buffer offload.</p>
+              <div class="chain-preview">
+                Cause: Export Mill Demand → Spot: Rs 2,860 (+15.8%) → Action: Offload Stock
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VIEW 15: AUDIT TRAIL & LOGS -->
+        <!-- ========================================================= -->
+        <section id="view-audit" class="view-section">
+          <div class="section-header-bar">
+            <div>
+              <h2><span>📜</span> <span data-i18n="nav_audit">Farm Audit Trail & Compliance Log</span></h2>
+              <p>Every farmer decision, sensor reading, prescription acknowledged, and machinery booked is persisted in SQL.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="data-table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Action Category</th>
+                    <th>Action Details</th>
+                    <th>Operator</th>
+                    <th>Expense</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody id="audit-table-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- Modals -->
+
+  <!-- Modal: Book Machinery -->
+  <div id="modal-machinery" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-size: 1.15rem; font-weight: bold;">Book Equipment Reservation</h3>
+        <button class="modal-close-btn" style="font-size: 1.2rem;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 14px;">
+          <h4 id="book-machinery-name" style="font-weight: 700; color: var(--primary-light);">Equipment</h4>
+          <div id="book-machinery-rate" class="text-muted" style="font-size: 0.85rem;">Rate</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Reservation Date</label>
+          <input type="date" id="book-date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Duration (Hours)</label>
+          <input type="number" id="book-hours" class="form-control" value="4" min="1" max="24">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-btn">Cancel</button>
+        <button id="btn-confirm-booking" class="btn btn-primary">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Log Expense -->
+  <div id="modal-expense" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-size: 1.15rem; font-weight: bold;">Record Farm Expense</h3>
+        <button class="modal-close-btn" style="font-size: 1.2rem;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Expense Category</label>
+          <select id="exp-category" class="form-control">
+            <option value="Fertilizer">Fertilizer</option>
+            <option value="Seeds">Seeds</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Labour">Labour</option>
+            <option value="Machinery">Machinery Hire</option>
+            <option value="Irrigation">Irrigation / Tubewell</option>
+            <option value="Pesticides">Pesticides</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Item / Description</label>
+          <input type="text" id="exp-item" class="form-control" placeholder="e.g. 2 bags Urea from IFFCO">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Quantity</label>
+            <input type="number" id="exp-quantity" class="form-control" value="1" step="0.5">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Cost (INR)</label>
+            <input type="number" id="exp-cost" class="form-control" placeholder="Rs" step="10">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-btn">Cancel</button>
+        <button id="btn-save-expense" class="btn btn-primary">Save Expense</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Log Sale -->
+  <div id="modal-sale" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-size: 1.15rem; font-weight: bold;">Record Harvest Mandi Sale</h3>
+        <button class="modal-close-btn" style="font-size: 1.2rem;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Crop Name</label>
+          <input type="text" id="sale-crop" class="form-control" value="Wheat">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Buyer / Mandi Yard</label>
+          <input type="text" id="sale-mandi" class="form-control" value="Karnal Mandi Yard">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Quantity (Quintals)</label>
+            <input type="number" id="sale-qty" class="form-control" value="45" step="1">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Price per Quintal (INR)</label>
+            <input type="number" id="sale-rate" class="form-control" value="2490" step="10">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-btn">Cancel</button>
+        <button id="btn-save-sale" class="btn btn-primary">Save Sale Record</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- Script Modules -->
+  <script src="/js/localization.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/irrigation.js"></script>
+  <script src="/js/fertilizer.js"></script>
+  <script src="/js/crop-health.js"></script>
+  <script src="/js/soil-weather.js"></script>
+  <script src="/js/growth.js"></script>
+  <script src="/js/market.js"></script>
+  <script src="/js/finance.js"></script>
+  <script src="/js/machinery.js"></script>
+  <script src="/js/satellite.js"></script>
+  <script src="/js/insurance.js"></script>
+  <script src="/js/government.js"></script>
+  <script src="/js/ussd.js"></script>
+  <script src="/js/app.js"></script>
+
+</body>
+</html>

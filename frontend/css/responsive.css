@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Smart Crop Advisory - Responsive Layout Adaptations (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .layout-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .layout-grid-equal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+  }
+
+  .sidebar-backdrop.active {
+    display: block;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .content-body {
+    padding: 16px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .growth-timeline-container {
+    padding-bottom: 20px;
+  }
+
+  .topbar-right .lang-toggle,
+  .topbar-right .theme-toggle {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .data-table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-select-wrapper label {
+    display: none;
+  }
+
+  .section-header-bar h2 {
+    font-size: 1.25rem;
+  }
+
+  .ussd-phone-mockup {
+    max-width: 100%;
+    padding: 16px 12px;
+  }
+}

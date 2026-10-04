@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Crop Advisory - Precision Agricultural Decision-Support System</title>
+  <meta name="description" content="Precision agricultural decision-support system for Indian farmers featuring crop monitoring, soil telemetry, irrigation and fertilizer recommendations, AI disease diagnosis, mandi market intelligence, PMFBY insurance dossier, and satellite disaster assessment.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body style="background: var(--bg-main); overflow-y: auto;">
+
+  <!-- Hero Header -->
+  <header style="background: var(--bg-sidebar); color: white; padding: 40px 24px; border-bottom: 4px solid var(--primary-light);">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #40916c, #1b4332); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+          🌾
+        </div>
+        <div>
+          <h1 style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em;">SMART CROP ADVISORY</h1>
+          <p style="color: var(--text-sidebar-muted); font-size: 0.95rem;">स्मार्ट फसल सलाहकार • Precision Agricultural Decision-Support System</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <a href="/login.html" class="btn btn-secondary">Farmer Login / Onboarding</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-lg">Launch Digital Control Center →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main style="max-width: 1100px; margin: 30px auto; padding: 0 20px;">
+
+    <!-- Presentation / Judge Demo Workflow Banner (Section 37) -->
+    <div class="card" style="border: 2px solid var(--primary-light); background: var(--bg-card); padding: 24px; margin-bottom: 30px; box-shadow: var(--shadow-md);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-light);">
+          🎯 Evaluator & Judge Quick-Demo Workflow
+        </h2>
+        <span class="badge badge-success">Fully Functional Full-Stack Prototype</span>
+      </div>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+        Experience the complete end-to-end cause-and-effect loop engineered for Indian agriculture:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; text-align: center; font-size: 0.8rem; font-weight: bold; margin-bottom: 18px;">
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid var(--primary-light);">
+          1. LOGIN<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">Ravi / Sunita</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid var(--primary-light);">
+          2. DASHBOARD<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">IoT Telemetry</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid var(--warning);">
+          3. SOIL DEFICIT<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">&lt;25% Moisture</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid #0284c7);">
+          4. IRRIGATION<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">FAO-56 Engine</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid #16a34a);">
+          5. AI DISEASE<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">Vision/Offline</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid var(--danger);">
+          6. FLASH FLOOD<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">Demo Scenario</span>
+        </div>
+        <div style="background: var(--bg-muted); padding: 12px 6px; border-radius: 6px; border-left: 3px solid #7c3aed);">
+          7. PMFBY PDF<br/><span style="font-weight: normal; font-size: 0.72rem; color: var(--text-muted);">Claim Dossier</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="/dashboard.html" class="btn btn-primary">Enter Dashboard as Ravi Kumar (Wheat - Karnal)</a>
+        <button class="btn btn-secondary" onclick="Auth.loadDemoAccount('sunita'); window.location.href='/dashboard.html';">
+          Switch to Sunita Devi (Basmati - Nilokheri)
+        </button>
+      </div>
+    </div>
+
+    <!-- Features Overview Grid -->
+    <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--text-main);">
+      Platform Capabilities & Integrated Modules
+    </h3>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 30px;">
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">💧 Precision Irrigation Decision Engine</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Calculates moisture deficits across 15cm & 45cm root depths, computing required irrigation depth (mm), pump runtime, and volumetric requirement.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">🧪 Rule-Based Fertilizer Engine</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Evaluates soil N-P-K benchmarks and pH to recommend subsidized Neem-coated Urea, DAP, MOP, and Zinc Sulfate with cost tallies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">🔬 AI Disease Diagnosis & Offline Fallback</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Multimodal crop disease detection with Gemini Vision when configured, and automatic OfflineFallbackManager heuristic engine when offline.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">📈 Mandi Market Intelligence</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Simulated APMC spot rate feeds across Karnal, Gharaunda, Panipat, Kurukshetra, and Taraori with MSP parity and price trends.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">🛰️ Sentinel-2 Satellite Disaster & PMFBY</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Assesses NDVI spectral anomalies, computes crop inundation/drought damage, and auto-compiles an official printable PMFBY Claim Dossier PDF.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">📟 USSD / SMS Feature Phone Simulator</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Interactive terminal simulating *515# dial codes allowing smallholder farmers to access soil telemetry and mandi rates without internet.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tech Stack Verification -->
+    <div class="card" style="background: var(--bg-muted); font-size: 0.85rem; color: var(--text-muted);">
+      <div style="font-weight: bold; color: var(--text-main); margin-bottom: 4px;">System Architecture Compliance:</div>
+      <div>Frontend: Pure Semantic HTML5, CSS3, Vanilla JavaScript (Zero front-end frameworks)</div>
+      <div>Backend: Python (Flask REST API returning uniform JSON)</div>
+      <div>Database: SQL (21 Relational Normalized Tables in SQLite3 with audit trails)</div>
+    </div>
+
+  </main>
+
+  <footer style="text-align: center; padding: 24px; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid var(--border);">
+    Smart Crop Advisory • Developed for Indian Farmers • Jai Kisan
+  </footer>
+
+  <script src="/js/localization.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
